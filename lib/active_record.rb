@@ -30,5 +30,9 @@ module ActiveRecord
     def self.table_name
       name.downcase + 's' # "users"
     end
+
+    def self.all
+      find_by_sql("SELECT * FROM #{table_name}")
+    end
   end
 end
